@@ -21,14 +21,11 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": [
-    "react",
-    "@typescript-eslint",
-    "prettier"
-  ],
+  "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
     "prettier/prettier": "error",
-    "space-before-function-paren":"off",
-    "react/prop-types": "off"
+    "space-before-function-paren": "off",
+    "react/pro-types": "off",
+    "linebreak-style": ["error", "windows"]
   }
 }

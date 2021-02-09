@@ -1,6 +1,8 @@
 import React from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
+
 import { Container } from '../styles/pages/Home';
 
 const Home: React.FC = () => {
@@ -18,7 +20,13 @@ const Home: React.FC = () => {
         width={180}
       />
 
-      <h1>Hello World!</h1>
+      <Link href="/login">
+        <article className="prose lg:prose-sm mt-4">
+          <h2 className="cursor-pointer p-5 bg-purple-600 rounded-md">
+            Ir para login
+          </h2>
+        </article>
+      </Link>
     </Container>
   );
 };
