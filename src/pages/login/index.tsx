@@ -6,6 +6,8 @@ import { Creators } from 'src/store/ducks/auth';
 import { useDispatch, useSelector } from 'react-redux';
 import { IReduxState } from 'src/store';
 
+import { motion } from 'framer-motion';
+
 const Login: React.FC = () => {
   const dispatch = useDispatch();
   const handleAuth = () => {
@@ -23,7 +25,14 @@ const Login: React.FC = () => {
     <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
       <div className="relative py-3 sm:max-w-xl sm:mx-auto">
         <div className="absolute inset-0 bg-gradient-to-r  bg-purple-800 from-cyan-400 to-light-blue-500 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
-        <div className="relative px-4 py-10 bg-gray-800 shadow-lg sm:rounded-3xl sm:p-20">
+        <motion.div
+          animate={{
+            scale: [1, 2, 2, 1, 1],
+            rotate: [0, 0, 270, 270, 0],
+            borderRadius: ['20%', '20%', '50%', '50%', '5%'],
+          }}
+          className="relative px-4 py-10 bg-gray-800 shadow-lg sm:rounded-3xl sm:p-20"
+        >
           <div className="max-w-md mx-auto">
             <div>
               <Image
@@ -32,8 +41,9 @@ const Login: React.FC = () => {
                 layout="fixed"
                 height={100}
                 width={180}
-              />
+              />{' '}
             </div>
+
             <div className="divide-y divide-gray-200">
               <div className="py-8 text-base leading-6 space-y-4 text-purple-100 sm:text-lg sm:leading-7">
                 <ul className="list-disc space-y-2">
@@ -121,7 +131,7 @@ const Login: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
