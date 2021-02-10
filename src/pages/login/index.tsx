@@ -8,8 +8,14 @@ import { IReduxState } from 'src/store';
 
 import { motion } from 'framer-motion';
 
+import img from 'src/assets/img/logo-white.png';
+
+import { useRouter } from 'next/router';
+
 const Login: React.FC = () => {
   const dispatch = useDispatch();
+  const router = useRouter();
+
   const handleAuth = () => {
     dispatch(Creators.authenticated('token_de_authenticacao'));
     alert('Login Efetuado com sucesso');
@@ -33,10 +39,10 @@ const Login: React.FC = () => {
           }}
           className="relative px-4 py-10 bg-gray-800 shadow-lg sm:rounded-3xl sm:p-20"
         >
-          <div className="max-w-md mx-auto">
+          <div className="max-w-md mx-auto flex items-center flex-col">
             <div>
               <Image
-                src="/logo-white.png"
+                src={img}
                 alt="iNova Logo"
                 layout="fixed"
                 height={100}
@@ -107,7 +113,7 @@ const Login: React.FC = () => {
                   <>
                     <button
                       onClick={() => handleLogout()}
-                      className="hover:bg-purple-600 p-1 rounded-md focus:outline-none"
+                      className="hover:bg-purple-900 bg-purple-600 p-1 rounded-md focus:outline-none"
                     >
                       Logout
                     </button>
@@ -122,7 +128,7 @@ const Login: React.FC = () => {
                     </p>
                     <button
                       onClick={() => handleAuth()}
-                      className="hover:bg-purple-600 p-1 rounded-md focus:outline-none"
+                      className="hover:bg-purple-900 bg-purple-600 p-1 rounded-md focus:outline-none"
                     >
                       Logar
                     </button>
@@ -130,6 +136,12 @@ const Login: React.FC = () => {
                 )}
               </div>
             </div>
+            <button
+              onClick={() => router.push('/')}
+              className="hover:bg-purple-900 bg-purple-600 p-2 rounded-md focus:outline-none mt-2 w-36"
+            >
+              Voltar
+            </button>
           </div>
         </motion.div>
       </div>
